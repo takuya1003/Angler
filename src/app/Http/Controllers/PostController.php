@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use\App\Post;
+use\App\Prefecture;
 
 class PostController extends Controller
 {
@@ -13,7 +15,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('posts.index');
+        $posts = Post::all();
+        $posts->load('prefecture', 'user');
+        //dd($posts);
+        return view('posts.index', compact('posts'));
     }
 
     /**
