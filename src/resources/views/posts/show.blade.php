@@ -12,19 +12,17 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        @foreach($posts as $post)
                         <div class="card text-center">
                             <div class="card-header text-left">
-                                {{ $post->user->name }}
+                                {{ $posts->user->name }}
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title text-left">施設名：{{ $post->facility_name }}</h3>
-                                <h6 class="card-text text-left">[{{ $post->prefecture->prefectures_name }}]</h7>
-                                <h5 class="card-text text-left">内容：{{ $post->content }}</h5>
-                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細</a>
+                                <h3 class="card-title text-left">施設名：{{ $posts->facility_name }}</h3>
+                                <h6 class="card-text text-left">[{{ $posts->prefecture->prefectures_name }}]</h7>
+                                <h5 class="card-text text-left">内容：{{ $posts->content }}</h5>
+                                <a href="{{ route('posts.index') }}" class="btn btn-primary">戻る</a>
                             </div>
                         </div>
-                        @endforeach
                     </div>
                 </div>
             </div>
