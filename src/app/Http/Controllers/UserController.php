@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use\App\Post;
-use\App\Prefecture;
 
-class PostController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,24 +13,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $query = \Request::query();
-        
-        if(!empty($query['prefectures_id'])){
-            $posts = Post::where('prefectures_id', $query['prefectures_id'])->get();
-            $posts->load('prefecture', 'user');
-            return view('posts.index', compact('posts'));
-
-        }elseif(!empty($query['user_id'])){
-            $posts = Post::where('user_id', $query['user_id'])->get();
-            $posts->load('prefecture', 'user');
-            return view('posts.index', compact('posts'));
-
-        }else{
-            $posts = Post::all();
-            $posts->load('prefecture', 'user');
-            return view('posts.index', compact('posts'));
-        }
-
+        //
     }
 
     /**
@@ -42,7 +23,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        //
     }
 
     /**
@@ -53,14 +34,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $Post = new Post;
-        $Post->facility_name = $request->facility_name;
-        $Post->content = $request->content;
-        $Post->prefectures_id = $request->prefectures_id;
-        $Post->user_id = $request->user_id;
-        $Post->save();
-
-        return redirect('/');
+        //
     }
 
     /**
@@ -71,8 +45,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $posts = Post::find($id);
-        return view('posts.show', compact('posts'));
+        //
     }
 
     /**
