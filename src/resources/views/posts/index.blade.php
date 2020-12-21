@@ -15,11 +15,22 @@
                         @foreach($posts as $post)
                         <div class="card text-center">
                             <div class="card-header text-left">
-                                {{ $post->user->name }}
+                                <a href="{{ route('posts.index', [ 'user_id' => $post->user_id ]) }}">
+                                    {{ $post->user->name }}
+                                </a>
                             </div>
                             <div class="card-body">
-                                <h3 class="card-title text-left">施設名：{{ $post->facility_name }}</h3>
-                                <h6 class="card-text text-left">[{{ $post->prefecture->prefectures_name }}]</h7>
+                                <h3 class="card-title text-left">
+                                    施設名：
+                                    <a href="#">
+                                        {{ $post->facility_name }} 
+                                    </a>
+                                </h3>
+                                <h6 class="card-text text-left">
+                                    <a href="{{ route('posts.index', [ 'prefectures_id' => $post->prefectures_id ]) }}">
+                                        [{{ $post->prefecture->prefectures_name }}]
+                                    </a>
+                                </h7>
                                 <h5 class="card-text text-left">内容：{{ $post->content }}</h5>
                                 <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細</a>
                             </div>
