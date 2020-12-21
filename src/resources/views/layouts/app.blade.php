@@ -61,6 +61,8 @@
                                         {{ __('Logout') }}
                                     </a>
 
+                                    <a href="{{ route('posts.create') }}" class="dropdown-item">投稿する</a>
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
