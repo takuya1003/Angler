@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned()->index();
             $table->bigInteger('prefectures_id')->unsigned()->index();
-            $table->string('facility_name')->nullable();
+            $table->string('port_name')->nullable();
             $table->text('content')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('prefectures_id')->references('id')->on('prefectures')->onDelete('cascade');

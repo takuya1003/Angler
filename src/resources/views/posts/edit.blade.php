@@ -12,15 +12,17 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('posts.store') }}">
-                        {{ csrf_field() }}
+                        <form method="POST" action="{{ route('posts.update', $posts->id) }}">
+                        @method('PATCH')
+                        @csrf
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">漁港名</label>
-                                <input type="text" class="form-control" name="port_name" id="exampleFormControlInput1" placeholder="">
+                                <input type="text" value="{{ $posts->port_name }}" class="form-control" name="port_name" id="exampleFormControlInput1" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">都道府県</label>
-                                <select class="form-control" name="prefectures_id" id="exampleFormControlSelect1">
+                                <select class="form-control" name="prefectures_id" id="exampleFormControlSelect1" >
+                                    <option value="{{ $posts->prefectures_id }}">{{ $posts->prefecture->prefectures_name }}</option>
                                     <option value="1">北海道</option>
                                     <option value="2">青森県</option>
                                     <option value="3">岩手県</option>
@@ -75,7 +77,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">内容</label>
-                                <textarea class="form-control" name="content" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control" name="content" id="exampleFormControlTextarea1" >{{ $posts->content }}</textarea>
                             </div>
                             <div class="form-group text-center">
                                 <button type="submit" class="btn btn-primary ">投稿！</button>
