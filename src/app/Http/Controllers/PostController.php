@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use\App\Post;
 use\App\Prefecture;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -115,5 +116,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         $posts = Post::find($id)->delete();
+        $auth = Auth::id();
+        return redirect('/users/'.$auth);
     }
 }

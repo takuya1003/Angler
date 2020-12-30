@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -12,16 +13,14 @@
                                 <a href="#">プロフィールを編集</a>
                             @endif
                             <div>
-                                ここにプロフィール欄を作成
+                                <h5>名前：{{ $user->name}}</h5>
+                                <p>釣り歴：</p>
+                                <p>好きな釣法：</p>
+                                <p>居住地：</p>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">        
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
                         @foreach($user->posts as $post)
                         <div class="card text-center">
                             <div class="card-header text-left">
@@ -48,7 +47,7 @@
                                     <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="btn btn-primary">削除</button>
+                                        <button type="submit" class="btn btn-primary" onclick="return disp()">削除</button>
                                     </form>
                                     
                                 @endif
