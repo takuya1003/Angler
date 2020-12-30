@@ -15,19 +15,19 @@ class PostsTableSeeder extends Seeder
             [
                 'user_id' => 1,
                 'prefectures_id' => 1,
-                'facility_name' => 'hoge',
+                'port_name' => 'hoge',
                 'content' => 'test'
             ],
             [
                 'user_id' => 1,
                 'prefectures_id' => 1,
-                'facility_name' => 'hogehoge',
+                'port_name' => 'hogehoge',
                 'content' => 'test2'
             ],
             [
                 'user_id' => 1,
                 'prefectures_id' => 1,
-                'facility_name' => 'hogehogehoge',
+                'port_name' => 'hogehogehoge',
                 'content' => 'test3'
             ]
         ]);

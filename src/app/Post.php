@@ -10,7 +10,7 @@ class Post extends Model
         'user_id',
         'prefectures_id',
         'content',
-        'facility_name',
+        'port_name',
 
     ];
 

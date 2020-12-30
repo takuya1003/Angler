@@ -18,17 +18,17 @@ class PostController extends Controller
         $query = \Request::query();
         
         if(!empty($query['prefectures_id'])){
-            $posts = Post::where('prefectures_id', $query['prefectures_id'])->get();
+            $posts = Post::where('prefectures_id', $query['prefectures_id'])->latest()->get();
             $posts->load('prefecture', 'user');
             return view('posts.index', compact('posts'));
 
         }elseif(!empty($query['user_id'])){
-            $posts = Post::where('user_id', $query['user_id'])->get();
+            $posts = Post::where('user_id', $query['user_id'])->latest()->get();
             $posts->load('prefecture', 'user');
             return view('posts.index', compact('posts'));
 
         }else{
-            $posts = Post::all();
+            $posts = Post::latest()->get();
             $posts->load('prefecture', 'user');
             return view('posts.index', compact('posts'));
         }
@@ -53,12 +53,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $Post = new Post;
-        $Post->facility_name = $request->facility_name;
-        $Post->content = $request->content;
-        $Post->prefectures_id = $request->prefectures_id;
-        $Post->user_id = $request->user_id;
-        $Post->save();
+        $post = new Post;
+        $post->fill($request->all())->save();
+        
 
         return redirect('/');
     }
@@ -83,7 +80,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $posts = Post::find($id);
+        return view('posts.edit', compact('posts'));
     }
 
     /**
@@ -95,7 +93,17 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $inputs = $request->all();
+        $post = Post::find($id);
+        $post->fill([
+            'port_name' => $inputs['port_name'],
+            'prefectures_id' => $inputs['prefectures_id'],
+            'content' => $inputs['content']
+        ]);
+        $post->save();
+
+        return redirect('/');
     }
 
     /**
@@ -106,6 +114,6 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $posts = Post::find($id)->delete();
     }
 }
