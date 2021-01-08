@@ -37,9 +37,7 @@
                         </div>
                         </article>
                         @endforeach
-                        <div class="text-center">
-                            <a href="{{ route('posts.index') }}" class="btn btn-primary center">戻る</a>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
