@@ -10,13 +10,12 @@
                     <div class="card">
                         <div class="card-body">
                             @if(Auth::id() == $user->id) 
-                                <a href="#">プロフィールを編集</a>
+                                <a href="{{ route('users.edit', $user->id) }}">プロフィールを編集</a>
                             @endif
                             <div>
                                 <h5>名前：{{ $user->name}}</h5>
-                                <p>釣り歴：</p>
-                                <p>好きな釣法：</p>
-                                <p>居住地：</p>
+                                <p>釣り歴：{{ $user->fishing_history }}</p>
+                                <p>好きな釣法：{{ $user->fishing_method }}</p>
                             </div>
                         </div>
                     </div>

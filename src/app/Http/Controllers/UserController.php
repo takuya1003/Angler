@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -58,7 +59,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::find($id);
+        return view('users.profile', compact('users'));
     }
 
     /**
@@ -70,7 +72,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $inputs = $request->all();
+        $users = User::find($id);
+        $users->fill([
+            'name' => $inputs['name'],
+            'fishing_history' => $inputs['fishing_history'],
+            'fishing_method' => $inputs['fishing_method']
+        ]);
+        $users->save();
+        $auth = Auth::id();
+        return redirect('/users/'.$auth);
     }
 
     /**
