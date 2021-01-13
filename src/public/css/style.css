@@ -2,7 +2,7 @@ article {
 	margin-top: 20px;
 	padding: 20px;
 	border-radius: 10px;
-	background: rgb(245, 247, 248);
+	background: rgb(255, 255, 255);
 }
 article.reply {
     position: relative;
@@ -42,13 +42,18 @@ article.reply::before {
     }
 
     main {
-        background: rgb(186, 212, 241);
+        background-color: rgba(214, 214, 214, 0.897);
+    }
+
+    html {
+        background-color: rgba(255, 255, 255, 0.739);
     }
 
 @media only screen and (max-width: 1000px) {
 
     body {
         padding: 30px 5%;
+        background-color: #fff;
     }
 
     input[type="text"] {
@@ -87,7 +92,7 @@ article.reply::before {
    height:140px;
    content:"";
    transform:skew(15deg,10deg);
-   background: #70b7ff; /*斜め背景の色*/
+   /*background: #70b7ff; /*斜め背景の色*/
    position:  absolute;
    bottom:-15%;
    left:-10%;
