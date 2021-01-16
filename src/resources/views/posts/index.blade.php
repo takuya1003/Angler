@@ -1,12 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-
+@guest
+<div class="top_content">
+    <div class="top_content_item">
+        <img src="{{ asset('img/4340451_m.jpg') }}"  alt="">
+        <div class="top_content_item"><h2 id="char">さあ、釣りに出かけよう！！</h2></div>
+    </div>
+</div>
+@endguest
 <div class="container">
-    
     <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class=>
+        <div class="col-md-12">
+            <div class="">
                     <div class="">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
@@ -15,8 +21,8 @@
                         @endif
                         @foreach($posts as $post)
                         <article>
-                        <div class="info">
-                            <div class="">
+                        <div class="l-content">
+                            <div class="p-postCardList">
                                 <a href="{{ route('posts.index', [ 'user_id' => $post->user_id ]) }}">
                                     {{ $post->user->name }}
                                 </a>
