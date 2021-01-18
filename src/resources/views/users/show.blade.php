@@ -36,6 +36,9 @@
                                 </a>
                             </h7>
                             <h5 class="card-text text-left">内容：{{ $post->content }}</h5>
+                            @if($post->image_path)
+                                <img src="{{ $post->image_path }}" alt="画像">
+                             @endif
                             <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細</a>
                             @if(Auth::id() == $user->id)
                                 <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">編集</a>

@@ -40,6 +40,9 @@
                                     </a>
                                 </h7>
                                 <h5 class="">内容：{{ $post->content }}</h5>
+                                @if($post->image_path)
+                                    <img src="{{ $post->image_path }}" alt="画像">
+                                @endif
                                 <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細</a>
                             </div>
                         </div>
