@@ -12,7 +12,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('posts.store') }}">
+                        <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                         @csrf
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">漁港名</label>
@@ -98,6 +98,10 @@
                                     @endforeach    
                                 @endif
                                 <textarea class="form-control" name="content" id="exampleFormControlTextarea1" rows="3">{{ old('content') }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="image">画像</label>
+                                <input type="file" class="form-control-file" name="image" id="image">
                             </div>
                             <div class="form-group text-center">
                                 <button type="submit" class="btn btn-primary ">投稿！</button>

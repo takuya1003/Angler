@@ -7,6 +7,7 @@ use\App\Post;
 use\App\Prefecture;
 use Illuminate\Support\Facades\Auth;
 use\App\Http\Requests\StoreAnglerPost;
+use JD\Cloudder\Facades\Cloudder;
 
 class PostController extends Controller
 {
@@ -56,8 +57,24 @@ class PostController extends Controller
     public function store(StoreAnglerPost $request)
     {
         $post = new Post;
-        $post->fill($request->all())->save();
-        
+        $post->port_name = $request->port_name;
+        $post->prefectures_id = $request->prefectures_id;
+        $post->content = $request->content;
+        $post->user_id = $request->user_id;
+
+        if ($image = $request->file('image')) {
+            $image_path = $image->getRealPath();
+            Cloudder::upload($image_path, null);
+            //直前にアップロードされた画像のpublicIdを取得する。
+            $publicId = Cloudder::getPublicId();
+            $logoUrl = Cloudder::secureShow($publicId, [
+                'width'     => 200,
+                'height'    => 200
+            ]);
+            $post->image_path = $logoUrl;
+            $post->public_id  = $publicId;
+        }
+        $post->save();
 
         return redirect('/');
     }
@@ -116,7 +133,13 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $posts = Post::find($id)->delete();
+        $posts = Post::find($id);
+
+        if(isset($posts->public_id)){
+            Cloudder::destroyImage($posts->public_id);
+        }
+        $posts->delete();
+
         $auth = Auth::id();
         return redirect('/users/'.$auth);
     }

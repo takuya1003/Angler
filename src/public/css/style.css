@@ -1,119 +1,109 @@
-article {
-	margin-top: 20px;
-	padding: 20px;
-	border-radius: 10px;
-	background: rgb(255, 255, 255);
+body{
+    font-family: 'Kosugi Maru', sans-serif;
+    /*font-family: 'Sawarabi Mincho', sans-serif*/;
 }
-article.reply {
+
+article{
+    padding-top: 30px;
+}
+
+.top_content{
     position: relative;
-    margin-top: 15px;
-    margin-left: 30px;
-}
-article.reply::before {
-    position: absolute;
-    top: -10px;
-    left: 20px;
-    display: block;
-    content: "";
-    border-top: none;
-    border-left: 7px solid #f7f7f7;
-    border-right: 7px solid #f7f7f7;
-    border-bottom: 10px solid #fff;
-}
-	.info {
-		margin-bottom: 10px;
-	}
-	.info h2 {
-		display: inline-block;
-		margin-right: 10px;
-		color: #222;
-		line-height: 1.6em;
-		font-size: 86%;
-	}
-	.info time {
-		color: #999;
-		line-height: 1.6em;
-		font-size: 72%;
-	}
-    article p {
-        color: rgb(148, 76, 76);
-        font-size: 86%;
-        line-height: 1.6em;
-    }
-
-    main {
-        background-color: rgba(214, 214, 214, 0.897);
-    }
-
-    html {
-        background-color: rgba(255, 255, 255, 0.739);
-    }
-
-@media only screen and (max-width: 1000px) {
-
-    body {
-        padding: 30px 5%;
-        background-color: #fff;
-    }
-
-    input[type="text"] {
-        width: 100%;
-    }
-    textarea {
-        width: 100%;
-        max-width: 100%;
-        height: 70px;
-    }
-}
-
-.profile-card{
     width: 100%;
-    max-width:400px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.top_content_item h2{
+    position: absolute;
+    font-weight: bold;
+    top: 35%;
+    left: 50%;
+    color: cornsilk;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+}
+
+.top_content_item img{
+    width: 100%;
+    height: 100%;
+    padding-bottom: 30px;
+    margin-top: 0px;
+}
+
+.l-content.is-noPaddingBottom{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.l-content{
+    border-radius: 16px;
+    background: #ffffff;
+    box-sizing: border-box;
+    margin: 0 0 60px;
+    padding: 80px;
+    padding-top: 20px;
+}
+
+.p-mypage{
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+  
+.l-conteiners_main{
+}
+
+.p-postCardList{
     position: relative;
-    background: #fff; /*背景の色*/
-    box-shadow: 0px 1px 3px rgba(0,0,0,.18);
-    overflow: hidden;
-  }
-  
-  .profile-card:before{
-   width:120%;
-   height:130px;
-   content:"";
-   transform:skew(15deg,10deg);
-   background: #70b7ff; /*斜め背景の色*/
-   position:  absolute;
-   top:-15%;
-   left:-10%;
-   z-index: 0;
-  }
-  
-  .profile-card:after{
-   width:120%;
-   height:140px;
-   content:"";
-   transform:skew(15deg,10deg);
-   /*background: #70b7ff; /*斜め背景の色*/
-   position:  absolute;
-   bottom:-15%;
-   left:-10%;
-   z-index: 0;
-  }
-  
-  .profile-card__inner{
-   position: relative;
-    z-index: 1;
-  }
-  
-  .profile-thumb{
-      overflow: hidden;
-      width: 110px;
-      height: 110px;
-      border: #fff 3px solid;
-      border-radius: 55px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 20px;
-      background: #fff;
-  }
-  
-  
+}
+
+a:link{
+    color: rgba(2, 7, 255, 0.972);
+}
+a:visited{
+    color: rgba(2, 7, 255, 0.972);
+}
+
+a:active{
+    color: rgba(2, 7, 255, 0.972)
+}
+
+main{
+    background-color: rgb(226, 225, 230);
+}
+
+footer{
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    color: black;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.footer_mess{
+    padding-top: 20px;
+}
+
+ul.footer_menu li{
+    list-style: none;
+    display: inline;
+}
+
+.icon_1{
+    padding-right: 5%;
+}
+
+.icon_2{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.icon_3{
+    padding-left: 5%;
+    padding-right: 5%;
+}

@@ -26,7 +26,8 @@ class StoreAnglerPost extends FormRequest
         return [
             'port_name' => 'required',
             'prefectures_id' => 'not_in: 0',
-            'content' => 'required|max: 100'
+            'content' => 'required|max: 100',
+            
         ];
     }
 
@@ -35,7 +36,7 @@ class StoreAnglerPost extends FormRequest
     return [
         'required' => 'この項目は必ず入力してください！',
         'not_in' => 'この項目は必ず選択してください！',
-        'content.max' => '１００文字以内で入力してください！'
+        'content.max' => '１００文字以内で入力してください！',
     ];
 }
 }

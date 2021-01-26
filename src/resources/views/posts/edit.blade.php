@@ -12,7 +12,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('posts.update', $posts->id) }}">
+                        <form method="POST" action="{{ route('posts.update', $posts->id) }}" enctype="multipart/form-data">
                         @method('PATCH')
                         @csrf
                             <div class="form-group">
@@ -78,6 +78,10 @@
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">内容</label>
                                 <textarea class="form-control" name="content" id="exampleFormControlTextarea1" >{{ $posts->content }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="image">画像</label>
+                                <input type="file" class="form-control-file" name="image" id="image">
                             </div>
                             <div class="form-group text-center">
                                 <button type="submit" class="btn btn-primary ">投稿！</button>
