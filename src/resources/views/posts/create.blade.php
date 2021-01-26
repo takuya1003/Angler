@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <div class="card">
+            <div class="card margin_card">
                 <div class="card-header">投稿ページ</div>
                     <div class="card-body">
                         @if (session('status'))
@@ -97,7 +97,7 @@
                                         </div>
                                     @endforeach    
                                 @endif
-                                <textarea class="form-control" name="content" id="exampleFormControlTextarea1" rows="3">{{ old('content') }}</textarea>
+                                <textarea class="form-control " name="content" id="exampleFormControlTextarea1" rows="3">{{ old('content') }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="image">画像</label>

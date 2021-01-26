@@ -23,7 +23,7 @@
                         <article>
                         <div class="l-content">
                             <div class="p-postCardList">
-                                <a href="{{ route('posts.index', [ 'user_id' => $post->user_id ]) }}">
+                                <a href="{{ route('users.show', [ $post->user_id ]) }}">
                                     {{ $post->user->name }}
                                 </a>
                             </div>
@@ -40,10 +40,14 @@
                                     </a>
                                 </h7>
                                 <h5 class="">内容：{{ $post->content }}</h5>
-                                @if($post->image_path)
-                                    <img src="{{ $post->image_path }}" alt="画像">
-                                @endif
-                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細</a>
+                                <div class="">
+                                    @if($post->image_path)
+                                        <img src="{{ $post->image_path }}" alt="画像">
+                                    @endif
+                                </div>
+                                <div class="text-center">
+                                    <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary text-center">詳細</a>
+                                </div>
                             </div>
                         </div>
                         </article>

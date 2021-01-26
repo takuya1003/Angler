@@ -36,6 +36,8 @@ article{
 .l-content.is-noPaddingBottom{
     margin-bottom: 20px;
     padding-bottom: 20px;
+    padding-top: 20px;
+    margin-top: 20px;
 }
 
 .l-content{
@@ -52,10 +54,7 @@ article{
     margin: 0 auto;
     margin-bottom: 20px;
 }
-  
-.l-conteiners_main{
-}
-
+   
 .p-postCardList{
     position: relative;
 }
@@ -106,4 +105,13 @@ ul.footer_menu li{
 .icon_3{
     padding-left: 5%;
     padding-right: 5%;
+}
+
+.margin_card{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+h5{
+    white-space: pre-wrap;
 }
