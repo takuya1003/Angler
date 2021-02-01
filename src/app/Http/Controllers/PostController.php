@@ -39,6 +39,9 @@ class PostController extends Controller
      */
     public function create()
     {
+        if(empty(Auth::id())){
+            return redirect(404);
+        }
         return view('posts.create');
     }
 

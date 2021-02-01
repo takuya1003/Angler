@@ -19,6 +19,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
+                        <div class="text-center"><h1>投稿一覧</h1></div>
                         @foreach($posts as $post)
                         <article>
                         <div class="l-content">
@@ -27,7 +28,7 @@
                                     {{ $post->user->name }}
                                 </a>
                             </div>
-                            <div class="">
+                            <div class="card-body">
                                 <h3 class="">
                                     漁港名：
                                     <a href="#">
@@ -45,7 +46,7 @@
                                         <img src="{{ $post->image_path }}" alt="画像">
                                     @endif
                                 </div>
-                                <div class="text-center">
+                                <div class="text-center top_btn">
                                     <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary text-center">詳細</a>
                                 </div>
                             </div>

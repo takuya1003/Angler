@@ -115,3 +115,15 @@ ul.footer_menu li{
 h5{
     white-space: pre-wrap;
 }
+
+.profile_btn{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 300px;
+}
+
+.top_btn{
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}

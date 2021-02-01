@@ -23,32 +23,34 @@
                                 {{ $post->user->name }}
                             </a>
                         </div>
-                        <div class="card-body">
-                            <h3 class="card-title text-left">
+                        <div class="">
+                            <h3 class=" text-left">
                                 施設名：
                                 <a href="#">
                                     {{ $post->port_name }} 
                                 </a>
                             </h3>
-                            <h6 class="card-text text-left">
+                            <h6 class=" text-left">
                                 <a href="{{ route('posts.index', [ 'prefectures_id' => $post->prefectures_id ]) }}">
                                     [{{ $post->prefecture->prefectures_name }}]
                                 </a>
                             </h7>
-                            <h5 class="card-text text-left">内容：{{ $post->content }}</h5>
+                            <h5 class=" text-left">内容：{{ $post->content }}</h5>
                             @if($post->image_path)
                                 <img src="{{ $post->image_path }}" alt="画像">
                              @endif
-                            <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細</a>
-                            @if(Auth::id() == $user->id)
-                                <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">編集</a>
-                                <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" class="btn btn-primary" onclick="return disp()">削除</button>
-                                </form>
-                                
-                            @endif
+                             <div class="profile_btn text-center">
+                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細</a>
+                                @if(Auth::id() == $user->id)
+                                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">編集</a>
+                                    <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-primary" onclick="return disp()">削除</button>
+                                    </form>
+                                    
+                                @endif
+                            </div>
                         </div>
                     </div>
                     @endforeach
