@@ -24,12 +24,6 @@ class PostController extends Controller
             $posts = Post::where('prefectures_id', $query['prefectures_id'])->latest()->get();
             $posts->load('prefecture', 'user');
             return view('posts.index', compact('posts'));
-
-        }elseif(!empty($query['user_id'])){
-            $posts = Post::where('user_id', $query['user_id'])->latest()->get();
-            $posts->load('prefecture', 'user');
-            return view('posts.index', compact('posts'));
-
         }else{
             $posts = Post::latest()->get();
             $posts->load('prefecture', 'user');
@@ -45,6 +39,9 @@ class PostController extends Controller
      */
     public function create()
     {
+        if(empty(Auth::id())){
+            return redirect(404);
+        }
         return view('posts.create');
     }
 
@@ -68,8 +65,8 @@ class PostController extends Controller
             //直前にアップロードされた画像のpublicIdを取得する。
             $publicId = Cloudder::getPublicId();
             $logoUrl = Cloudder::secureShow($publicId, [
-                'width'     => 200,
-                'height'    => 200
+                'width'     => 300,
+                'height'    => 300
             ]);
             $post->image_path = $logoUrl;
             $post->public_id  = $publicId;

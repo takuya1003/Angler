@@ -4,22 +4,31 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-                    <div class="card-body">
+            <div class="l-content margin_card">
+                <div class=""></div>
+                    <div class="">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <div class="card text-center">
-                            <div class="card-header text-left">
-                                {{ $posts->user->name }}
+                        <div class=" text-center">
+                            <div class=" text-left">
+                                <a href="{{ route('users.show', [ $posts->user_id ]) }}">
+                                    {{ $posts->user->name }}
+                                </a>    
                             </div>
-                            <div class="card-body">
+                            <div class="">
                                 <h3 class="card-title text-left">施設名：{{ $posts->port_name }}</h3>
-                                <h6 class="card-text text-left">[{{ $posts->prefecture->prefectures_name }}]</h7>
+                                <a href="{{ route('posts.index', [ 'prefectures_id' => $posts->prefectures_id ]) }}">
+                                    <h6 class="card-text text-left">[{{ $posts->prefecture->prefectures_name }}]</h7>
+                                </a>
                                 <h5 class="card-text text-left">内容：{{ $posts->content }}</h5>
+                                <div class="">
+                                    @if($posts->image_path)
+                                        <img src="{{ $posts->image_path }}" alt="画像">
+                                    @endif
+                                </div>
                                 <a href="{{ route('posts.index') }}" class="btn btn-primary">戻る</a>
                             </div>
                         </div>
