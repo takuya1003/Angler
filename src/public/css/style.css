@@ -127,3 +127,20 @@ h5{
     margin-bottom: 0;
     padding-bottom: 0;
 }
+
+.comment-card{
+    margin-top: 100px;
+}
+
+.comment-list{
+    display: flex;
+    margin-top: 20px;
+}
+
+.name{
+    margin-left: 30px;
+}
+
+.comment{
+    margin-left: 20px;
+}

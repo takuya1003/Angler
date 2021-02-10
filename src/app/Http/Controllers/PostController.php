@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use\App\Post;
 use\App\Prefecture;
+use\App\Comment;
 use Illuminate\Support\Facades\Auth;
 use\App\Http\Requests\StoreAnglerPost;
 use JD\Cloudder\Facades\Cloudder;
@@ -79,12 +80,13 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $posts = Post::find($id);
+        $posts = Post::find($id );
+        $posts->load('prefecture','user','comments');
         return view('posts.show', compact('posts'));
     }
 
@@ -96,6 +98,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+
         $posts = Post::find($id);
         return view('posts.edit', compact('posts'));
     }
