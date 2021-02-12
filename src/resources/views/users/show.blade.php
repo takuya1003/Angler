@@ -5,6 +5,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
+            @if (session('flash_message'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('flash_message') }}
+                </div>
+            @endif
             <div class="l-content is-noPaddingBottom">
                 @if(Auth::id() == $user->id) 
                     <a href="{{ route('users.edit', $user->id) }}">プロフィールを編集</a>
@@ -40,13 +45,13 @@
                                 <img src="{{ $post->image_path }}" alt="画像">
                              @endif
                              <div class="profile_btn text-center">
-                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細</a>
+                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-success">詳細</a>
                                 @if(Auth::id() == $user->id)
-                                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">編集</a>
+                                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-editor">編集</a>
                                     <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="btn btn-primary" onclick="return disp()">削除</button>
+                                        <button type="submit" class="btn btn-danger" onclick="return disp()">削除</button>
                                     </form>
                                     
                                 @endif

@@ -46,7 +46,7 @@ article{
     box-sizing: border-box;
     margin: 0 0 60px;
     padding: 80px;
-    padding-top: 20px;
+    /* padding-top: 20px; */
 }
 
 .p-mypage{
@@ -60,14 +60,14 @@ article{
 }
 
 a:link{
-    color: rgba(2, 7, 255, 0.972);
+    /* color: rgba(2, 7, 255, 0.972); */
 }
 a:visited{
-    color: rgba(2, 7, 255, 0.972);
+    /* color: rgba(2, 7, 255, 0.972); */
 }
 
 a:active{
-    color: rgba(2, 7, 255, 0.972)
+    /* color: rgba(2, 7, 255, 0.972) */
 }
 
 main{
@@ -130,17 +130,57 @@ h5{
 
 .comment-card{
     margin-top: 100px;
+    /* color:; */
 }
 
 .comment-list{
     display: flex;
     margin-top: 20px;
+    border-bottom-style: inset ;
+    position: relative;
 }
 
 .name{
-    margin-left: 30px;
+    margin-right: 20px;
+    margin-left: 10px;
 }
 
 .comment{
+    margin-left: 80px;
+    margin-right: 20px;
+    width: 400px;
+}
+
+.comment-time{
+
+    position: absolute;
+    right: 70px;
+}
+
+.del-btn{
+    position: absolute;
+    right: 0 ;
+}
+
+.created-at{
+    position: absolute;
+    right: 40px;
+    margin-top: 20px;
+
+}
+
+.btn-comment{
+    margin-top: 0;
+}
+
+.btn-back{
+    margin-top: 100px;
+    margin-bottom: 0;
+    margin-left: 230px;
+}
+
+.btn-editor{
     margin-left: 20px;
+    margin-right: 20px;
+    color: white;
 }

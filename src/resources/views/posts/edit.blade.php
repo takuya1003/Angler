@@ -7,9 +7,9 @@
             <div class="card margin_card">
                 <div class="card-header">投稿ページ</div>
                     <div class="card-body">
-                        @if (session('status'))
+                        @if (session('flash_message'))
                             <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
+                                {{ session('flash_message') }}
                             </div>
                         @endif
                         <form method="POST" action="{{ route('posts.update', $posts->id) }}" enctype="multipart/form-data">

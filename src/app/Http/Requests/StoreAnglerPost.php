@@ -32,11 +32,11 @@ class StoreAnglerPost extends FormRequest
     }
 
     public function messages()
-{
-    return [
-        'required' => 'この項目は必ず入力してください！',
-        'not_in' => 'この項目は必ず選択してください！',
-        'content.max' => '１００文字以内で入力してください！',
-    ];
-}
+    {
+        return [
+            'required' => 'この項目は必ず入力してください！',
+            'not_in' => 'この項目は必ず選択してください！',
+            'content.max' => '１００文字以内で入力してください！',
+        ];
+    }
 }

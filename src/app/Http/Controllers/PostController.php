@@ -12,13 +12,10 @@ use JD\Cloudder\Facades\Cloudder;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //投稿一覧表示
     public function index()
     {
+        //現在のクエリを配列で取得
         $query = \Request::query();
         
         if(!empty($query['prefectures_id'])){
@@ -33,33 +30,23 @@ class PostController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //投稿画面
     public function create()
     {
         if(empty(Auth::id())){
+            //ログインしていなければ404ページにリダイレクト
             return redirect(404);
         }
         return view('posts.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    //投稿されたデータをDBに保存
     public function store(StoreAnglerPost $request)
     {
+        //Postクラスのインスタンスを作成
         $post = new Post;
-        $post->port_name = $request->port_name;
-        $post->prefectures_id = $request->prefectures_id;
-        $post->content = $request->content;
-        $post->user_id = $request->user_id;
 
+        //ユーザーが画像をアップロードした時の処理
         if ($image = $request->file('image')) {
             $image_path = $image->getRealPath();
             Cloudder::upload($image_path, null);
@@ -72,30 +59,21 @@ class PostController extends Controller
             $post->image_path = $logoUrl;
             $post->public_id  = $publicId;
         }
-        $post->save();
 
+        $post->fill($request->all())->save();
+        session()->flash('flash_message', '投稿が完了しました');
         return redirect('/');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  
-     * @return \Illuminate\Http\Response
-     */
+    //投稿データの詳細
     public function show($id)
     {
-        $posts = Post::find($id );
+        $posts = Post::find($id);
         $posts->load('prefecture','user','comments');
         return view('posts.show', compact('posts'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //編集画面
     public function edit($id)
     {
 
@@ -103,34 +81,16 @@ class PostController extends Controller
         return view('posts.edit', compact('posts'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //編集したデータをアップデート
     public function update(Request $request, $id)
     {
 
-        $inputs = $request->all();
         $post = Post::find($id);
-        $post->fill([
-            'port_name' => $inputs['port_name'],
-            'prefectures_id' => $inputs['prefectures_id'],
-            'content' => $inputs['content']
-        ]);
-        $post->save();
-
+        $post->fill($request->all())->save();
         return redirect('/');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //投稿データを削除
     public function destroy($id)
     {
         $posts = Post::find($id);
@@ -140,6 +100,7 @@ class PostController extends Controller
         }
         $posts->delete();
 
+        session()->flash('flash_message', '削除が完了しました');
         $auth = Auth::id();
         return redirect('/users/'.$auth);
     }

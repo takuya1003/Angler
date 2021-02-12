@@ -6,17 +6,17 @@
         <div class="col-md-10">
             <div class="card margin_card">
                 <div class="card-header">コメント</div>
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
                         <form method="POST" action="{{ route('comments.store') }}">
                         @csrf
                             <div class="form-group">
-                                @if($errors->has('content'))
-                                    @foreach($errors->get('content') as $message)
+                                @if($errors->has('comment'))
+                                    @foreach($errors->get('comment') as $message)
                                         <div class="alert alert-danger" role="alert">
                                             {{ $message }}
                                         </div>
