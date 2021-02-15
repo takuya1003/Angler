@@ -21,7 +21,11 @@ class PostController extends Controller
         if(!empty($query['prefectures_id'])){
             $posts = Post::where('prefectures_id', $query['prefectures_id'])->latest()->get();
             $posts->load('prefecture', 'user');
-            return view('posts.index', compact('posts'));
+            $prefecture = Prefecture::find($query['prefectures_id'], 'prefectures_name');
+            return view('posts.index', [
+                'posts' => $posts,
+                'prefecture' => $prefecture
+            ]);
         }else{
             $posts = Post::latest()->get();
             $posts->load('prefecture', 'user');

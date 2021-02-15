@@ -19,7 +19,11 @@
                                 {{ session('flash_message') }}
                             </div>
                         @endif
-                        <div class="text-center"><h1>投稿一覧</h1></div>
+                        @if(!empty($prefecture))
+                            <div class="text-center"><h1>「{{ $prefecture->prefectures_name }}」の投稿一覧</h1></div>
+                        @else
+                            <div class="text-center"><h1>投稿一覧</h1></div>
+                        @endif
                         @foreach($posts as $post)
                         <article>
                         <div class="l-content">
