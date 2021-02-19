@@ -47,7 +47,7 @@ class PostController extends Controller
     //投稿されたデータをDBに保存
     public function store(StoreAnglerPost $request)
     {
-        //Postクラスのインスタンスを作成
+        //Postクラスのインスタンス
         $post = new Post;
 
         //ユーザーが画像をアップロードした時の処理

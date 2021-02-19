@@ -10,6 +10,6 @@ class FollowUser extends Pivot
     protected $table = 'follow_users';
 
     public function followUsers(){
-        return $this->belongToMany('')
+        //return $this->belongToMany('')
     }
 }
