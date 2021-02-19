@@ -16,7 +16,7 @@ class UserController extends Controller
     }
 
     //ユーザー情報をDBに登録
-    public function store(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $inputs = $request->all();
         $users = User::find($id);
