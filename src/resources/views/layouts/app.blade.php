@@ -10,9 +10,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/form.js') }}" defer></script>
-    <script src="{{ asset('js/animate.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" ></script>
+    <script src="{{ asset('js/form.js') }}" ></script>
+    <script src="{{ asset('js/animate.js') }}" ></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/jmap.js') }} "></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
