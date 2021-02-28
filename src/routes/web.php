@@ -21,4 +21,4 @@ Route::get('/', 'PostController@index')->name('posts.index');
 Route::resource('/posts', 'PostController');
 Route::resource('/users', 'UserController');
 Route::resource('/comments', 'CommentController')->middleware('auth');
-Route::get('/area', 'AreaController@area_search');
+Route::get('/area', 'AreaController@area_search')->name('area');
