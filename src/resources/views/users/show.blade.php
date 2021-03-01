@@ -45,7 +45,7 @@
                                 <img src="{{ $post->image_path }}" alt="画像">
                              @endif
                              <div class="profile_btn text-center">
-                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-success">詳細</a>
+                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細</a>
                                 @if(Auth::id() == $user->id)
                                     <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-editor">編集</a>
                                     <form action="{{ route('posts.destroy', $post->id) }}" method="POST">

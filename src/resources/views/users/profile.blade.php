@@ -17,7 +17,7 @@
                         @csrf
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">名前</label>
-                                <input type="text" value="{{ $users->name }}" class="form-control" name="name" id="exampleFormControlInput1" placeholder="">
+                                <input type="text" value="{{ $users->name }}" class="form-control" name="name" id="exampleFormControlInput1" placeholder="名前を入力">
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">釣り歴</label>

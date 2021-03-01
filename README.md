@@ -64,4 +64,7 @@ mail to: xxxx@mail.com
 ## ライセンス
  
 [MIT](http://TomoakiTANAKA.mit-license.org)</blockquote>
+<<<<<<< HEAD
+=======
 
+>>>>>>> main

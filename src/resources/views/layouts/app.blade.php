@@ -10,9 +10,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/form.js') }}" defer></script>
-    <script src="{{ asset('js/animate.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" ></script>
+    <script src="{{ asset('js/form.js') }}" ></script>
+    <script src="{{ asset('js/animate.js') }}" ></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/jmap.js') }} "></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,6 +26,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style_map.css') }}" rel="stylesheet">
     
 </head>
 <body>
@@ -48,6 +51,9 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
+                                <a href="{{ route('area') }}" class="nav-link">エリアから探す</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                             </li>
                             @if (Route::has('register'))
@@ -55,6 +61,7 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('新規会員登録') }}</a>
                                 </li>
                             @endif
+    
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -70,6 +77,7 @@
 
                                     <a href="{{ route('posts.create') }}" class="dropdown-item">投稿する</a>
                                     <a href="{{ route('users.show', Auth::id()) }}" class="dropdown-item">マイページ</a>
+                                    <a href="{{ route('area') }}" class="dropdown-item">エリアから探す</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
