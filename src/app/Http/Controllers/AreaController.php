@@ -12,3 +12,6 @@ class AreaController extends Controller
         return view('area.search_area');
     }
 }
+
+
+?>

@@ -17,19 +17,34 @@ class PostController extends Controller
     {
         //現在のクエリを配列で取得
         $query = \Request::query();
-        
+        $check = false;
+
         if(!empty($query['prefectures_id'])){
             $posts = Post::where('prefectures_id', $query['prefectures_id'])->latest()->get();
             $posts->load('prefecture', 'user');
             $prefecture = Prefecture::find($query['prefectures_id'], 'prefectures_name');
             return view('posts.index', [
                 'posts' => $posts,
-                'prefecture' => $prefecture
+                'prefecture' => $prefecture,
+                'check' => $check
+            ]);
+        }elseif(!empty($query['port_name'])){
+            $posts = Post::where('port_name', "{$query['port_name']}" )->latest()->get();
+            $port_name = Post::where('port_name', "{$query['port_name']}" )->first();
+            $check = true;
+            //dd($posts);
+            return view('posts.index', [
+                'posts' => $posts,
+                'check' => $check,
+                'port_name' => $port_name
             ]);
         }else{
             $posts = Post::latest()->get();
             $posts->load('prefecture', 'user');
-            return view('posts.index', compact('posts'));
+            return view('posts.index', [
+                'posts' => $posts,
+                'check' => $check
+            ]);
         }
 
     }
@@ -47,14 +62,14 @@ class PostController extends Controller
     //投稿されたデータをDBに保存
     public function store(StoreAnglerPost $request)
     {
-        //Postクラスのインスタンス
+        //Postのインスタンス
         $post = new Post;
 
         //ユーザーが画像をアップロードした時の処理
         if ($image = $request->file('image')) {
             $image_path = $image->getRealPath();
             Cloudder::upload($image_path, null);
-            //直前にアップロードされた画像のpublicIdを取得する。
+            //直前にアップロードされた画像のpublicIdを取得する
             $publicId = Cloudder::getPublicId();
             $logoUrl = Cloudder::secureShow($publicId, [
                 'width'     => 300,
@@ -80,7 +95,6 @@ class PostController extends Controller
     //編集画面
     public function edit($id)
     {
-
         $posts = Post::find($id);
         return view('posts.edit', compact('posts'));
     }

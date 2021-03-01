@@ -23,7 +23,7 @@
                                         </div>
                                     @endforeach    
                                 @endif
-                                <input type="text" class="form-control" name="port_name" value="{{ old('port_name') }}" id="exampleFormControlInput1" placeholder="">
+                                <input type="text" class="form-control" name="port_name" value="{{ old('port_name') }}" id="exampleFormControlInput1" placeholder="漁港名を入力">
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">都道府県</label>
@@ -97,7 +97,7 @@
                                         </div>
                                     @endforeach    
                                 @endif
-                                <textarea class="form-control " name="content" id="exampleFormControlTextarea1" rows="3">{{ old('content') }}</textarea>
+                                <textarea class="form-control " name="content" id="exampleFormControlTextarea1" placeholder="ここに釣行の内容を入力" rows="3">{{ old('content') }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label for="image">画像</label>
