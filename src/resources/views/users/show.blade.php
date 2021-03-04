@@ -28,23 +28,23 @@
                                 {{ $post->user->name }}
                             </a>
                         </div>
-                        <div class="">
-                            <h3 class=" text-left">
-                                施設名：
+                        <div class="card-body">
+                            <h3 class=" ">
+                                漁港名：
                                 <a href="#">
                                     {{ $post->port_name }} 
                                 </a>
                             </h3>
-                            <h6 class=" text-left">
+                            <h6 class="">
                                 <a href="{{ route('posts.index', [ 'prefectures_id' => $post->prefectures_id ]) }}">
                                     [{{ $post->prefecture->prefectures_name }}]
                                 </a>
                             </h7>
-                            <h5 class=" text-left">内容：{{ $post->content }}</h5>
+                            <h5 class="">内容：{{ $post->content }}</h5>
                             @if($post->image_path)
                                 <img src="{{ $post->image_path }}" alt="画像">
                              @endif
-                             <div class="profile_btn text-center">
+                             <div class="text-center top_btn">
                                 <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細</a>
                                 @if(Auth::id() == $user->id)
                                     <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-editor">編集</a>
