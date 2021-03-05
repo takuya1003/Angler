@@ -44,14 +44,14 @@
                             @if($post->image_path)
                                 <img src="{{ $post->image_path }}" alt="画像">
                              @endif
-                             <div class="text-center top_btn">
-                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">詳細</a>
+                             <div class="text-center profile_btn">
+                                <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary btn-detail">詳細</a>
                                 @if(Auth::id() == $user->id)
-                                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-editor">編集</a>
+                                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-edit">編集</a>
                                     <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="btn btn-danger" onclick="return disp()">削除</button>
+                                        <button type="submit" class="btn btn-danger btn-delete" onclick="return disp()">削除</button>
                                     </form>
                                     
                                 @endif
