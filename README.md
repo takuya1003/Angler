@@ -6,7 +6,15 @@
  
 https://test.iwamoto.tech/
 
-<img src="/readme_img/top.png" widht="600" height="324">
+<table>
+ <tr>
+  <th>トップページ</th>
+ </tr> 
+ <tr>
+  <td><img src="/readme_img/top.png" widht="" height=""></td>
+ </tr>
+</table>
+
 <table>
  <tr>
   <th>会員登録</th>
@@ -20,25 +28,48 @@ https://test.iwamoto.tech/
 
 <table>
  <tr>
-  <th>エリアから検索ページ</th>
   <th>投稿一覧ページ</th>
+  <th>投稿詳細ページ</th>
  </tr> 
  <tr>
-  <td><img src="/readme_img/area.png" widht="" height=""></td>
   <td><img src="/readme_img/timeline.png" widht="" height=""></td>
+  <td><img src="/readme_img/post_detail.png" widht="" height=""></td>
  </tr>
 </table>
 
 <table>
  <tr>
+  <th>エリアから検索ページ</th>
   <th>投稿ページ</th>
-  <th></th>
  </tr> 
  <tr>
-  <td><img src="/readme_img/post.png" widht="" height=""></td>
+  <td><img src="/readme_img/area.png" widht="" height=""></td>
   <td><img src="/readme_img/post.png" widht="" height=""></td>
  </tr>
 </table>
+
+<table>
+ <tr>
+  <th>マイページ</th>
+ </tr> 
+ <tr>
+  <td><img src="/readme_img/mypage.png" widht="" height=""></td>
+ </tr>
+</table>
+
+<table>
+ <tr>
+  <th>投稿編集ページ</th>
+  <th>プロフィール編集ページ</th>
+ </tr> 
+ <tr>
+  <td><img src="/readme_img/post_edit.png" widht="" height=""></td>
+  <td><img src="/readme_img/user_edit.png" widht="" height=""></td>
+ </tr>
+</table>
+
+
+
 
 
 
