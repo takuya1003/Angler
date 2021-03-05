@@ -5,7 +5,44 @@
 ***デモ***
  
 https://test.iwamoto.tech/
- 
+
+<img src="/readme_img/top.png" widht="600" height="324">
+<table>
+ <tr>
+  <th>会員登録</th>
+  <th>ログイン</th>
+ </tr> 
+ <tr>
+  <td><img src="/readme_img/sighup.png" widht="" height=""></td>
+  <td><img src="/readme_img/login.png" widht="" height=""></td>
+ </tr>
+</table>
+
+<table>
+ <tr>
+  <th>エリアから検索ページ</th>
+  <th>投稿一覧ページ</th>
+ </tr> 
+ <tr>
+  <td><img src="/readme_img/area.png" widht="" height=""></td>
+  <td><img src="/readme_img/timeline.png" widht="" height=""></td>
+ </tr>
+</table>
+
+<table>
+ <tr>
+  <th>投稿ページ</th>
+  <th></th>
+ </tr> 
+ <tr>
+  <td><img src="/readme_img/post.png" widht="" height=""></td>
+  <td><img src="/readme_img/post.png" widht="" height=""></td>
+ </tr>
+</table>
+
+
+
+
 ## 機能
  
 - 機能1（UI/計算 etc ...）
