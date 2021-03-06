@@ -90,39 +90,50 @@ https://test.iwamoto.tech/
 ・エリアから探す<br>
   
  
-## 必要要件
+## 環境設定
  
-- 要件
-- 要件
-- 要件
-- ...
+- apache
+- PHP 7.2
+- MYSQL(MariaDB)
+- Laravel 6.4
  
-## 使い方
  
-1. 使い方
-2. 使い方
-3. 使い方
- 
-## インストール
- 
+## ダウンロード
+
+- ダウンロード方法<br>
+githubからダウンロードするかgit cloneしてください<br>
+ダウンロード先：https://github.com/takuya1003/Angler.git<br>
+git clone する場合<br>
 ```
-$ git clone https://github.com/TomoakiTANAKA/awesome-tool
-$ cd awesome-tool
-$ sh setup.sh
-$ ~do anything~
+git clone https://github.com/takuya1003/Angler.git
 ```
  
-## テスト
- 
-1. 使い方
-2. 使い方
-3. 使い方
- 
-## デプロイ
- 
-1. デプロイ
-2. デプロイ
-3. デプロイ
+## データベース設計
+- 会員テーブル
+<table>
+ <tr>
+  <th>投稿編集ページ</th>
+  <th>プロフィール編集ページ</th>
+ </tr> 
+ <tr>
+  <td><img src="/readme_img/post_edit.png" widht="" height=""></td>
+  <td><img src="/readme_img/user_edit.png" widht="" height=""></td>
+ </tr>
+</table>
+
+- 投稿テーブル
+<table>
+ <tr>
+  <th>投稿編集ページ</th>
+  <th>プロフィール編集ページ</th>
+ </tr> 
+ <tr>
+  <td><img src="/readme_img/post_edit.png" widht="" height=""></td>
+  <td><img src="/readme_img/user_edit.png" widht="" height=""></td>
+ </tr>
+</table>
+
+
  
 ## その他
  
