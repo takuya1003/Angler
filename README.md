@@ -109,7 +109,8 @@ git clone https://github.com/takuya1003/Angler.git
 ```
  
 ## データベース設計
-- 会員テーブル
+- 会員テーブル<br>
+　テーブル名：users
 <table>
  <tr>
   <th>columun</th>
@@ -193,18 +194,180 @@ git clone https://github.com/takuya1003/Angler.git
  </tr> 
 </table>
 
-- 投稿テーブル
+- 投稿テーブル<br>
+ テーブル名：posts
 <table>
  <tr>
-  <th>投稿編集ページ</th>
-  <th>プロフィール編集ページ</th>
+  <th>columun</th>
+  <th>type</th>
+  <th>Null</th>
+  <th>key</th>
+  <th>default</th>
+  <th>Extra</th>
  </tr> 
  <tr>
-  <td><img src="/readme_img/post_edit.png" widht="" height=""></td>
-  <td><img src="/readme_img/user_edit.png" widht="" height=""></td>
+  <td>id</td>
+  <td>bigint</td>
+  <td>No</td>
+  <td>PRI</td>
+  <td>None</td>
+  <td>auto_increment</td>
+ </tr>
+ <tr>
+  <td>user_id</td>
+  <td>bigint</td>
+  <td>No</td>
+  <td>foreign</td>
+  <td>None</td>
+  <td></td>
+ </tr>
+ <tr>
+  <td>prefectures_id</td>
+  <td>bigint</td>
+  <td>No</td>
+  <td>foreign</td>
+  <td>None</td>
+  <td></td>
+ </tr> 
+ <tr>
+  <td>port_name</td>
+  <td>varchar</td>
+  <td>Yes</td>
+  <td></td>
+  <td>Null</td>
+  <td></td>
+ </tr> 
+ <tr>
+  <td>content</td>
+  <td>text</td>
+  <td>Yes</td>
+  <td></td>
+  <td></td>
+  <td></td>
+ </tr> 
+ <tr>
+  <td>image_path</td>
+  <td>text</td>
+  <td>Yes</td>
+  <td></td>
+  <td></td>
+  <td></td>
+ </tr> 
+ <tr>
+  <td>public_id</td>
+  <td>text</td>
+  <td>Yes</td>
+  <td></td>
+  <td></td>
+  <td></td>
+ </tr> 
+  <tr>
+  <td>created_at</td>
+  <td>timestamp</td>
+  <td>Yes</td>
+  <td></td>
+  <td>Null</td>
+  <td></td> 
+ </tr> 
+ <tr>
+  <td>updated_at</td>
+  <td>timestamp</td>
+  <td>Yes</td>
+  <td></td>
+  <td>Null</td>
+  <td></td>
+ </tr> 
+</table>
+
+- 都道府県テーブル<br>
+  テーブル名：prefectures
+<table>
+ <tr>
+  <th>columun</th>
+  <th>type</th>
+  <th>Null</th>
+  <th>key</th>
+  <th>default</th>
+  <th>extra</th>
+ </tr> 
+ <tr>
+  <td>id</td>
+  <td>bigint</td>
+  <td>No</td>
+  <td>PRI</td>
+  <td>None</td>
+  <td>auto_increment</td>
+ </tr>
+ <tr>
+  <td>prefectures_name</td>
+  <td>varchar</td>
+  <td>No</td>
+  <td></td>
+  <td>None</td>
+  <td></td>
  </tr>
 </table>
 
+- コメントテーブル<br>
+　テーブル名：comment
+ <table>
+ <tr>
+  <th>columun</th>
+  <th>type</th>
+  <th>Null</th>
+  <th>key</th>
+  <th>default</th>
+  <th>extra</th>
+ </tr> 
+ <tr>
+  <td>id</td>
+  <td>bigint</td>
+  <td>No</td>
+  <td>PRI</td>
+  <td>None</td>
+  <td>auto_increment</td>
+ </tr>
+ <tr>
+  <td>user_id</td>
+  <td>bigint</td>
+  <td>No</td>
+  <td>foreign</td>
+  <td>None</td>
+  <td></td>
+ </tr>
+ <tr>
+  <td>post_id</td>
+  <td>bigint</td>
+  <td>No</td>
+  <td>foreign</td>
+  <td>None</td>
+  <td></td>
+ </tr> 
+ <tr>
+  <td>comment</td>
+  <td>varchar</td>
+  <td>Yes</td>
+  <td></td>
+  <td>Null</td>
+  <td></td>
+ </tr> 
+  <tr>
+  <td>created_at</td>
+  <td>timestamp</td>
+  <td>Yes</td>
+  <td></td>
+  <td>Null</td>
+  <td></td> 
+ </tr> 
+ <tr>
+  <td>updated_at</td>
+  <td>timestamp</td>
+  <td>Yes</td>
+  <td></td>
+  <td>Null</td>
+  <td></td>
+ </tr> 
+</table>
 
  
 ## その他
