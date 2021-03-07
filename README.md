@@ -370,22 +370,5 @@ git clone https://github.com/takuya1003/Angler.git
 </table>
 
  
-## その他
  
-その他その他その他その他
-その他その他その他その他
-その他その他その他その他
-その他その他その他その他
- 
-## 作者
- 
-[@TanakanoAnchan](https://twitter.com/TanakanoAnchan)
-mail to: xxxx@mail.com
- 
-## ライセンス
- 
-[MIT](http://TomoakiTANAKA.mit-license.org)</blockquote>
-<<<<<<< HEAD
-=======
 
->>>>>>> main
