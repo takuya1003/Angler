@@ -156,7 +156,7 @@ git clone https://github.com/takuya1003/Angler.git
   <td>email</td>
   <td>varchar</td>
   <td>No</td>
-  <td>UNI</td>
+  <td>INDEX</td>
   <td>None</td>
   <td></td>
  </tr> 
@@ -217,7 +217,7 @@ git clone https://github.com/takuya1003/Angler.git
   <td>user_id</td>
   <td>bigint</td>
   <td>No</td>
-  <td>foreign</td>
+  <td>INDEX</td>
   <td>None</td>
   <td></td>
  </tr>
@@ -225,7 +225,7 @@ git clone https://github.com/takuya1003/Angler.git
   <td>prefectures_id</td>
   <td>bigint</td>
   <td>No</td>
-  <td>foreign</td>
+  <td>INDEX</td>
   <td>None</td>
   <td></td>
  </tr> 
@@ -331,7 +331,7 @@ git clone https://github.com/takuya1003/Angler.git
   <td>user_id</td>
   <td>bigint</td>
   <td>No</td>
-  <td>foreign</td>
+  <td>INDEX</td>
   <td>None</td>
   <td></td>
  </tr>
@@ -339,7 +339,7 @@ git clone https://github.com/takuya1003/Angler.git
   <td>post_id</td>
   <td>bigint</td>
   <td>No</td>
-  <td>foreign</td>
+  <td>INDEX</td>
   <td>None</td>
   <td></td>
  </tr> 
