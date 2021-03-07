@@ -110,7 +110,7 @@ git clone https://github.com/takuya1003/Angler.git
  
 ## データベース設計
 - 会員テーブル<br>
-　テーブル名：users
+テーブル名：users
 <table>
  <tr>
   <th>columun</th>
@@ -309,7 +309,7 @@ git clone https://github.com/takuya1003/Angler.git
 </table>
 
 - コメントテーブル<br>
-　テーブル名：comment
+テーブル名：comment
  <table>
  <tr>
   <th>columun</th>
