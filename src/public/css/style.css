@@ -166,7 +166,6 @@ h5{
     position: absolute;
     right: 40px;
     margin-top: 20px;
-
 }
 
 .btn-comment{
@@ -183,4 +182,9 @@ h5{
     margin-left: 20px;
     margin-right: 20px;
     color: white;
+}
+
+.port_data{
+    height: 300px;
+    width: 300px;
 }

@@ -13,10 +13,10 @@ class CommentController extends Controller
     //コメント作成画面
     public function create()
     {
-        $q = \Request::query();
+        $query = \Request::query();
 
         return view('comments.comment_create', [
-            'post_id' => $q['post_id'],
+            'post_id' => $query['post_id'],
         ]);
     }
 

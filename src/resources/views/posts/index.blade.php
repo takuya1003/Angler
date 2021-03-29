@@ -28,6 +28,32 @@
                     @elseif($check === true)
                         <div class="text-center">
                             <h1>「{{ $port_name->port_name }}」の投稿一覧</h1>
+                                <div class="l-content is-noPaddingBottom">
+                                    <div id="map" style="height:500px">
+                                    </div>
+                                    <div>
+                                        <h3>データ</h3>
+                                        <table border="1" class="port_data">
+                                            <tr>
+                                                <td>名前</td>
+                                                <td>ここに漁港名</td>
+                                            </tr>
+                                            <tr>
+                                                <td>都道府県</td>
+                                                <td>ここに都道府県</td>
+                                            </tr>
+                                            <tr>
+                                                <td>駐車スペース</td>
+                                                <td>あり</td>
+                                            </tr>
+                                            <tr>
+                                                <td>トイレ</td>
+                                                <td>あり</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     @else
                         <div class="text-center">

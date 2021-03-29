@@ -19,42 +19,40 @@ class PostController extends Controller
         $query = \Request::query();
         $check = false;
 
-        if(!empty($query['prefectures_id'])){
-            $posts = Post::where('prefectures_id', $query['prefectures_id'])->latest()->get();
-            $posts->load('prefecture', 'user');
-            $prefecture = Prefecture::find($query['prefectures_id'], 'prefectures_name');
+        if(empty($query['prefectures_id']) && empty($query['port_name'])){
+            $posts = Post::Get_Postdata();
+            return view('posts.index', [
+                'posts' => $posts,
+                'check' => $check
+            ]);
+        }elseif(!empty($query['port_name'])){
+            $port_name = $query['port_name'];
+            $posts = Post::List_By_Port($port_name);;
+            $ports = Post::where('port_name', "{$port_name}" )->first();
+            $check = true;
+            return view('posts.index', [
+                'posts' => $posts,
+                'check' => $check,
+                'port_name' => $ports
+            ]);
+        }else{
+            $prefecture_id = $query['prefectures_id'];
+            $posts = Post::List_By_Prefectures($prefecture_id);
+            $prefecture = Prefecture::find($prefecture_id, 'prefectures_name');
             return view('posts.index', [
                 'posts' => $posts,
                 'prefecture' => $prefecture,
                 'check' => $check
             ]);
-        }elseif(!empty($query['port_name'])){
-            $posts = Post::where('port_name', "{$query['port_name']}" )->latest()->get();
-            $port_name = Post::where('port_name', "{$query['port_name']}" )->first();
-            $check = true;
-            //dd($posts);
-            return view('posts.index', [
-                'posts' => $posts,
-                'check' => $check,
-                'port_name' => $port_name
-            ]);
-        }else{
-            $posts = Post::latest()->get();
-            $posts->load('prefecture', 'user');
-            return view('posts.index', [
-                'posts' => $posts,
-                'check' => $check
-            ]);
         }
-
     }
 
     //投稿画面
     public function create()
     {
         if(empty(Auth::id())){
-            //ログインしていなければ404ページにリダイレクト
-            return redirect(404);
+            //ログインしていなければ404ページへ
+            return abort(404);
         }
         return view('posts.create');
     }
@@ -122,4 +120,6 @@ class PostController extends Controller
         $auth = Auth::id();
         return redirect('/users/'.$auth);
     }
+    
+    
 }
