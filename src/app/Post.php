@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Post extends Model
 {
@@ -25,8 +26,35 @@ class Post extends Model
     }
 
     public function comments(){
-        return $this->hasMany(\App\Comment::class,'post_id', 'id')->orderBy('id','desc');
+        return $this->hasMany(\App\Comment::class,'post_id', 'id')
+        ->orderBy('id','desc');
     }
+
+    //投稿一覧を取得
+    public function scopeGet_Postdata()
+    {
+        return Post::with(['prefecture','user'])
+        ->latest()
+        ->get();
+    }    
+
+    //都道府県別の一覧を取得
+    public function scopeList_By_Prefectures($query, $prefecture_id)
+    {
+        return Post::with(['prefecture','user'])
+        ->where('prefectures_id', $prefecture_id)
+        ->latest()
+        ->get();
+    }
+
+    //漁港別の一覧を取得
+    public function scopeList_By_Port($query, $port_name)
+    {
+        return Post::where('port_name', "{$port_name}" )
+        ->latest()
+        ->get();
+    }
+
 
 
 }

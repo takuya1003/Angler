@@ -15,6 +15,9 @@
     <script src="{{ asset('js/animate.js') }}" ></script>
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     <script type="text/javascript" src="{{ asset('js/jmap.js') }} "></script>
+    <script type="text/javascript" src="{{ asset('js/result.js') }} "></script>
+    <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyBLsxr0fFRLxZkBqG81PjMSWLBWkaaUF2g&callback=initMap" async defer>
+	   </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

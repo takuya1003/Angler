@@ -42,4 +42,9 @@ class User extends Authenticatable
         return $this->hasmany(\App\Post::class, 'user_id')->orderBy('id','desc');
     }
 
+    public function follow()
+    {
+        
+    }
+
 }
