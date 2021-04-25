@@ -20,7 +20,7 @@ class CreatePortTable extends Migration
             $table->string('longitude');
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *
