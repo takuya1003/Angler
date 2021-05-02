@@ -15,16 +15,25 @@ class Post extends Model
 
     ];
 
+    /**
+     * 
+     */
     public function prefecture()
     {
         return $this->belongsTo('App\Prefecture', 'prefectures_id');
     }
     
+    /**
+     * 
+     */
     public function user()
     {
         return $this->belongsTo(\App\User::class, 'user_id');
     }
 
+    /**
+     * 
+     */
     public function comments(){
         return $this->hasMany(\App\Comment::class,'post_id', 'id')
         ->orderBy('id','desc');
@@ -54,6 +63,8 @@ class Post extends Model
         ->latest()
         ->get();
     }
+
+    
 
 
 

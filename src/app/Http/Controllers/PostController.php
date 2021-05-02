@@ -21,15 +21,17 @@ class PostController extends Controller
 
         if(empty($query['prefectures_id']) && empty($query['port_name'])){
             $posts = Post::Get_Postdata();
+
             return view('posts.index', [
                 'posts' => $posts,
                 'check' => $check
             ]);
         }elseif(!empty($query['port_name'])){
             $port_name = $query['port_name'];
-            $posts = Post::List_By_Port($port_name);;
+            $posts = Post::List_By_Port($port_name);
             $ports = Post::where('port_name', "{$port_name}" )->first();
             $check = true;
+
             return view('posts.index', [
                 'posts' => $posts,
                 'check' => $check,
@@ -39,6 +41,7 @@ class PostController extends Controller
             $prefecture_id = $query['prefectures_id'];
             $posts = Post::List_By_Prefectures($prefecture_id);
             $prefecture = Prefecture::find($prefecture_id, 'prefectures_name');
+
             return view('posts.index', [
                 'posts' => $posts,
                 'prefecture' => $prefecture,
@@ -60,7 +63,7 @@ class PostController extends Controller
     //投稿されたデータをDBに保存
     public function store(StoreAnglerPost $request)
     {
-        //Postのインスタンス
+        
         $post = new Post;
 
         //ユーザーが画像をアップロードした時の処理
