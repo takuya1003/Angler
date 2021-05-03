@@ -14,13 +14,17 @@ class CreatePortTable extends Migration
     public function up()
     {
         Schema::create('port', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->index();
             $table->string('port_name');
             $table->string('latitude');
             $table->string('longitude');
         });
+
+        
+
+
     }
-    
+
     /**
      * Reverse the migrations.
      *
