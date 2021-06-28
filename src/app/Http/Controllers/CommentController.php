@@ -10,7 +10,12 @@ use App\Comment;
 
 class CommentController extends Controller
 {
-    //コメント作成画面
+    /**
+     * コメント作成画面
+     * 
+     * @param array $query
+     * @return view
+     */
     public function create()
     {
         $query = \Request::query();
@@ -20,7 +25,13 @@ class CommentController extends Controller
         ]);
     }
 
-    //コメントをDBに保存
+    /**
+     * コメントをDBに保存
+     * 
+     * @param object $comment
+     * @param object $input
+     * @return redirect
+     */
     public function store(CommentRequest $request)
     {
         $comment = new Comment;
@@ -30,7 +41,12 @@ class CommentController extends Controller
         return redirect('/posts/'.$request->post_id);
     }
 
-    //コメント削除
+    /**
+     * コメント削除
+     * 
+     * @param object $comment
+     * @return redirect
+     */
     public function destroy($id)
     {
         $comment = Comment::find($id);
