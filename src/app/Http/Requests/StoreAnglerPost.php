@@ -24,7 +24,7 @@ class StoreAnglerPost extends FormRequest
     public function rules()
     {
         return [
-            'port_name' => 'required',
+            // 'port_name' => 'required',
             'prefectures_id' => 'not_in: 0',
             'content' => 'required|max: 100',
             

@@ -11,7 +11,7 @@ class Post extends Model
         'user_id',
         'prefectures_id',
         'content',
-        'port_name',
+        'port_id',
 
     ];
 
@@ -29,6 +29,14 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(\App\User::class, 'user_id');
+    }
+
+    /**
+     * 
+     */
+    public function port()
+    {
+        return $this->belongsTo('App\Port', 'port_id');
     }
 
     /**
@@ -57,9 +65,9 @@ class Post extends Model
     }
 
     //漁港別の一覧を取得
-    public function scopeList_By_Port($query, $port_name)
+    public function scopeList_By_Port($port_id)
     {
-        return Post::where('port_name', "{$port_name}" )
+        return Post::where('port_id', '{{$port_id}}' )
         ->latest()
         ->get();
     }

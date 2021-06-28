@@ -6,30 +6,41 @@ use Illuminate\Http\Request;
 use\App\Post;
 use\App\Prefecture;
 use\App\Comment;
+use\App\Port;
 use Illuminate\Support\Facades\Auth;
 use\App\Http\Requests\StoreAnglerPost;
 use JD\Cloudder\Facades\Cloudder;
 
 class PostController extends Controller
 {
-    //投稿一覧表示
+    /**
+     * 投稿一覧表示
+     * 
+     * @param array $query
+     * @param bool $check 
+     * @param object $posts
+     * @param int $port_id
+     * @param int $prefecture_id
+     * @param object $prefecture
+     * 
+     * @return view
+     */
     public function index()
     {
         //現在のクエリを配列で取得
         $query = \Request::query();
         $check = false;
 
-        if(empty($query['prefectures_id']) && empty($query['port_name'])){
+        if(empty($query['prefectures_id']) && empty($query['port_id'])){
             $posts = Post::Get_Postdata();
-
+           // dd($posts);
             return view('posts.index', [
                 'posts' => $posts,
                 'check' => $check
             ]);
-        }elseif(!empty($query['port_name'])){
-            $port_name = $query['port_name'];
-            $posts = Post::List_By_Port($port_name);
-            $ports = Post::where('port_name', "{$port_name}" )->first();
+        }elseif(!empty($query['port_id'])){
+            $port_id = $query['port_id'];
+            $posts = Post::List_By_Port($port_id);
             $check = true;
 
             return view('posts.index', [
@@ -41,7 +52,6 @@ class PostController extends Controller
             $prefecture_id = $query['prefectures_id'];
             $posts = Post::List_By_Prefectures($prefecture_id);
             $prefecture = Prefecture::find($prefecture_id, 'prefectures_name');
-
             return view('posts.index', [
                 'posts' => $posts,
                 'prefecture' => $prefecture,
@@ -50,17 +60,25 @@ class PostController extends Controller
         }
     }
 
-    //投稿画面
+    /**
+     * 投稿画面表示
+     * 
+     * @return view
+     */
     public function create()
     {
-        if(empty(Auth::id())){
-            //ログインしていなければ404ページへ
-            return abort(404);
-        }
         return view('posts.create');
     }
 
-    //投稿されたデータをDBに保存
+    /**
+     * 投稿されたデータをDBに保存
+     * 
+     * @param object $post
+     * @param object $image
+     * @param int $publicId
+     * @param string $logoUrl
+     * @return redirect
+     */
     public function store(StoreAnglerPost $request)
     {
         
@@ -85,7 +103,12 @@ class PostController extends Controller
         return redirect('/');
     }
 
-    //投稿データの詳細
+    /**
+     * 投稿データの詳細
+     * 
+     * @param object $posts
+     * @return view 
+     */
     public function show($id)
     {
         $posts = Post::find($id);
@@ -93,14 +116,24 @@ class PostController extends Controller
         return view('posts.show', compact('posts'));
     }
 
-    //編集画面
+    /**
+     * 編集画面
+     * 
+     * @param object $posts
+     * @return view
+     */
     public function edit($id)
     {
         $posts = Post::find($id);
         return view('posts.edit', compact('posts'));
     }
 
-    //編集したデータをアップデート
+    /**
+     * 編集したデータをアップデート
+     * 
+     * @param object $posts
+     * @return redirect
+     */
     public function update(Request $request, $id)
     {
 
@@ -109,7 +142,13 @@ class PostController extends Controller
         return redirect('/');
     }
 
-    //投稿データを削除
+    /**
+     * 投稿データを削除
+     * 
+     * @param object $posts
+     * @param int $auth
+     * @return redirect
+     */
     public function destroy($id)
     {
         $posts = Post::find($id);

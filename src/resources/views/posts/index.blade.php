@@ -27,7 +27,7 @@
                         </div>
                     @elseif($check === true)
                         <div class="text-center">
-                            <h1>「{{ $port_name->port_name }}」の投稿一覧</h1>
+                            <h1>「ここに漁港名」の投稿一覧</h1>
                                 <div class="l-content is-noPaddingBottom">
                                     <div id="map" style="height:500px">
                                     </div>
@@ -70,8 +70,8 @@
                                 </div>
                                 <div class="card-body">
                                     <h3 class="">漁港名： 
-                                        <a href="{{ route('posts.index', [ 'port_name' => $post->port_name ]) }}">
-                                            {{ $post->port_name }}
+                                        <a href="{{ route('posts.index', [ 'port_id' => $post->port_id ]) }}">
+                                            {{ $post->port->port_name }}
                                         </a>
                                     </h3>
                                     <h6 class="">

@@ -23,7 +23,11 @@
                                         </div>
                                     @endforeach    
                                 @endif
-                                <input type="text" class="form-control" name="port_name" value="{{ old('port_name') }}" id="exampleFormControlInput1" placeholder="漁港名を入力">
+                                
+                                <!-- <input type="text" class="form-control" name="port_name" value="{{ old('port_name') }}" id="exampleFormControlInput1" placeholder="漁港名を入力"> -->
+                                <select name="port_id" id="exampleFormControlSelect1">
+                                    <option value="1">松前港</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">都道府県</label>
