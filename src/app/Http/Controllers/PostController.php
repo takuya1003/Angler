@@ -112,7 +112,6 @@ class PostController extends Controller
     public function show($id)
     {
         $posts = Post::find($id);
-        $posts->load('prefecture','user','comments');
         return view('posts.show', compact('posts'));
     }
 
