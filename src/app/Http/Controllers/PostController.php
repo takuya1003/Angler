@@ -31,11 +31,13 @@ class PostController extends Controller
         $query = \Request::query();
         $check = false;
 
-        if(empty($query['prefectures_id']) && empty($query['port_id'])){
-            $posts = Post::Get_Postdata();
-           // dd($posts);
+        if(!empty($query['prefectures_id'])){
+            $prefecture_id = $query['prefectures_id'];
+            $posts = Post::List_By_Prefectures($prefecture_id);
+            $prefecture = Prefecture::find($prefecture_id, 'prefectures_name');
             return view('posts.index', [
                 'posts' => $posts,
+                'prefecture' => $prefecture,
                 'check' => $check
             ]);
         }elseif(!empty($query['port_id'])){
@@ -49,12 +51,10 @@ class PostController extends Controller
                 'port_name' => $ports
             ]);
         }else{
-            $prefecture_id = $query['prefectures_id'];
-            $posts = Post::List_By_Prefectures($prefecture_id);
-            $prefecture = Prefecture::find($prefecture_id, 'prefectures_name');
+            $posts = Post::Get_Postdata();
+           // dd($posts);
             return view('posts.index', [
                 'posts' => $posts,
-                'prefecture' => $prefecture,
                 'check' => $check
             ]);
         }
@@ -133,7 +133,7 @@ class PostController extends Controller
      * @param object $posts
      * @return redirect
      */
-    public function update(Request $request, $id)
+    public function update(StoreAnglerPost $request, $id)
     {
 
         $post = Post::find($id);
